@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card rounded">
+        <div class=" d-block justify-content-center">
+            <div class="area1 p-3 py-5"> </div>
+            <div class="area2 p- text-center px-3">
+                <div class="image mr-3"> <img src="{% static 'img/mypic.jpg' %}" class="rounded-circle" width="100" />
+                    <h4 class=" name mt-3 ">Razyesh Pudasaini</h4>
+                    <p class="information mt-3 justify-content-center">To Become Perfect Enough to code in Python <br> Future Web Developer</p>
+                    <div class="d-flex justify-content-center mt-5">
+                        <ul class="list-icons">
+                            <a href="https://github.com/razyesh"><li class="github"> <i class="fa fa-github"></i></li></a>
+                            <a href="https://www.linkedin.com/in/rajesh-pudasaini-616aab159/"><li class="linkedin"> <i class="fa fa-linkedin"></i></li></a>
+                        </ul>
+                    </div>
+                    <div class="justify-content-center">
+                        <a href="{% url 'blog:blog-list' %}"><button class="btn btn-sm btn-danger">View Blog</button></a>
+                        <p class="text-dark">Platform where anyone can share their thoughts</p>
+                    </div>
+                </div>
+                <div> </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% block sidebar %}
+        {% endblock %}
+{% endblock %}

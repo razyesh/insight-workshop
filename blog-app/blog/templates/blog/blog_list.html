@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3 class="my-4">My Blog List
+</h3>
+{% if message %}
+    {{ message }}
+{% else %}
+  {% for blog in blogs %}
+      <div class="content">
+
+
+    <div class="card">
+        <a href="{% url 'blog:blog-detail' blog.slug %}">
+          <div class="card-body">
+            <h2 class="card-title">{{ blog.title }}</h2>
+            <p class="card-text">{{ blog.meta_description }}</p>
+            <a href="{% url 'blog:blog-detail' blog.slug %}" class="btn btn-sm btn-primary">Read More &rarr;</a>
+          </div>
+        </a>
+      <div class="card-footer text-muted">
+        Posted on {{ blog.created_at}} by
+        <a href="#">{{ blog.author}}</a>
+      </div>
+    </div>
+      </div>
+  {% endfor %}
+{% endif %}
+{% endblock %}

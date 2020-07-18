@@ -1,0 +1,16 @@
+.card-title, .card-text, .card-header {
+    color: #000000;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 10%;
+}
+
+.card-text {
+    padding-top: 20px;
+}
+
+.content {
+    padding-top: 30px;
+}

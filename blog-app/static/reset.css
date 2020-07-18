@@ -1,0 +1,14 @@
+body {
+    background-color: #000000;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.clearfix {
+    clear: both;
+    display: table;
+    content: '';
+}
