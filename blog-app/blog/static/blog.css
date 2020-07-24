@@ -14,3 +14,11 @@
 .content {
     padding-top: 30px;
 }
+
+.blog-add {
+    color: #003366;
+}
+
+.blog-post {
+    line-height: 20px;
+}

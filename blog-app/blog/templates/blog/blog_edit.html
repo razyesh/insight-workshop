@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card blog-add">
+    <div class="card-header">
+        <a href="{% url 'user:user-profile' %}"><-- Back to Profile</a>
+<h3 class="my-4">Edit your Blog</h3>
+        {% if messages %}
+                 {% for message in messages %}
+                     <p class="text-{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+    </div>
+        <div class="card-body">
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-danger" style="margin:0;">Save</button>
+        </div>
+    </form>
+    </div>
+{% endblock %}

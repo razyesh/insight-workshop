@@ -19,7 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls', namespace='blog')),
-    path('', include('aboutMe.urls', namespace='about-me'))
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('blog/', include('blog.urls', namespace='blog')),
+                  path('', include('aboutMe.urls', namespace='about-me')),
+                  path('', include('authentication.urls', namespace='authentication')),
+                  path('', include('user.urls', namespace='user'))
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

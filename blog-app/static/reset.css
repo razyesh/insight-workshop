@@ -12,3 +12,7 @@ a:hover {
     display: table;
     content: '';
 }
+
+.btn {
+    margin: 0;
+}

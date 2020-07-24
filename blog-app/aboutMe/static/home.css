@@ -4,6 +4,10 @@
     border-radius: 14px !important
 }
 
+.aboutme {
+    margin-left: 50%;
+}
+
 .area1 {
     background-color: #b5b2f1;
     border-top-left-radius: 14px !important;
@@ -70,6 +74,3 @@
     background-color: #5897fb;
 }
 
-.btn {
-    margin-left: 25px;
-}

@@ -29,16 +29,27 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
-    'aboutMe'
 ]
+
+PROJECT_APPS = [
+    'blog',
+    'aboutMe',
+    'authentication',
+    'user',
+]
+
+THIRD_PARTY_APPS = [
+    'crispy_forms'
+]
+
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -110,6 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'prod-static')
+STATIC_ROOT = os.path.join(BASE_DIR, '../prod-static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
+
+AUTH_USER_MODEL = 'authentication.User'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache'
+    }
+}

@@ -1,5 +1,41 @@
+{% load static %}
 <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
+
+        <div class="card my-4">
+          {% if request.user.is_authenticated %}
+              <div class="profile-header card-header clearfix">
+
+                <h5>Profile</h5>
+                <a href="{% url 'blog:blog-add' %}"><button class="btn btn-sm btn-primary">Create Blog</button></a>
+              </div>
+
+              {% if request.user.image %}
+              <img src="{{ request.user.image.url }}" alt="" class="profile-img">
+                  {% else %}
+                  <img src="{% static 'img/default-img.png' %}" class="profile-img" alt="">
+
+                  {% endif %}
+              <form action="{% url 'user:upload-image' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                  <input id='fileid' name="profile-img" type='file' hidden/>
+                  <button class="btn btn-primary" id="upload-btn" hidden>Upload Image</button>
+              </form>
+              <button class="btn btn-primary" id="profile-upload">Upload Image</button>
+
+          <div class="card-body user-info">
+              <p>{{ request.user.username }}</p>
+              <p>{{ request.user.email }}</p>
+            </div>
+              <a href="{% url 'user:user-profile' %}"><button class="btn btn-sm btn-danger view-profile-btn">View Profile</button></a>
+
+              {% else %}
+              <div class="card-body">
+                  <a href="{% url 'authentication:login-user' %}"><button class="btn btn-danger">Login</button></a>
+              </div>
+
+      {% endif %}
+    </div>
         <!-- Search Widget -->
         <div class="card my-4">
           <h5 class="card-header">Search</h5>
@@ -14,6 +50,7 @@
             </div>
           </div>
         </div>
+
         <div class="card my-4">
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
@@ -31,6 +68,7 @@
           </div>
         </div>
 
+
         <!-- Side Widget -->
         <div class="card my-4">
           <h5 class="card-header">Recent Posts</h5>
@@ -41,3 +79,15 @@
           </div>
         </div>
       </div>
+
+<script>
+    document.getElementById('profile-upload').addEventListener('click', openDialog);
+
+    function openDialog() {
+      document.getElementById('fileid').click();
+    }
+    document.getElementById('fileid').addEventListener('change', function(e){
+        document.getElementById('upload-btn').click();
+
+    })
+</script>

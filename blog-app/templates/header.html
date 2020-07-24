@@ -3,5 +3,13 @@
         <div class="brand">
             <a href="{% url 'aboutMe:home' %}"><h4>Razyesh Blog Page</h4></a>
         </div>
+        <ul>
+            {% if request.user.is_authenticated %}
+                            <li><a href="{% url 'authentication:logout-user' %}"><h4>Logout</h4></a></li>
+                {% else %}
+            <li><a href="{% url 'authentication:login-user' %}"><h4>Login/Register</h4></a></li>
+
+            {% endif %}
+        </ul>
     </nav>
 </header>

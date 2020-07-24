@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block more_css %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="card login-form">
+
+    <div class="card-header">
+        <h4>Login</h4>
+    </div>
+    <div class="card-body">
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'authentication:login-user' %}" method="POST">
+        {% csrf_token %}
+            <div class="row">
+
+            <div class="form-group">
+            <div class="col-md-12">
+                {% for error in form.email.errors %}
+                    {{ error | escape }}
+                {% endfor %}
+                {{ form.email }}
+            </div>
+                <br>
+            <div class="col-md-12">
+                {% for error in form.password.errors %}
+                    {{ error | escape }}
+                {% endfor %}
+                {{ form.password }}
+            </div>
+            </div>
+           </div>
+            <button class="btn btn-sm btn-primary">Login</button>
+        <br>
+                <p class="register-btn">Don't have an account?<a href="{% url 'authentication:register-user' %}"> Register Here</a></p>
+             </div>
+    </form>
+    {% block sidebar %}
+        {% endblock %}
+    </div>
+    </div>
+{% endblock %}

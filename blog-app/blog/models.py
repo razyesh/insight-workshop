@@ -22,9 +22,11 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=255, blank=True)
     description = models.TextField()
     meta_description = models.CharField(max_length=255)
-    featured_image = models.ImageField(upload_to=handle_featured_image)
+    featured_image = models.ImageField(upload_to=handle_featured_image, blank=True, null=True)
+    image_url = models.URLField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='blog_category')
     tags = models.CharField(max_length=255)
+    is_published = models.BooleanField(default=False)
     updated_at = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now=True)
 

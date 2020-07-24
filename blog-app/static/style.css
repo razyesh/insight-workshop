@@ -1,0 +1,40 @@
+.profile-img {
+    width: 90%;
+    border-radius: 25%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+
+.user-info {
+    color: #000;
+    line-height: 5px;
+}
+
+#profile-upload {
+    margin: 0;
+    width: 100%;
+}
+
+.view-profile-btn {
+    width: 30%;
+    margin: 0;
+    float: right;
+    margin: 10px;
+}
+
+.profile-header {
+    width: 100%;
+}
+
+.profile-header  h5{
+    float: left;
+}
+
+.profile-header .btn {
+    float: right;
+}
+
+.view-all-blog-btn {
+    margin: 20px;
+}
