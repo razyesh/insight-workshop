@@ -7,6 +7,10 @@
     height: 10%;
 }
 
+.card-body {
+    color: #000000;
+}
+
 .card-text {
     padding-top: 20px;
 }
@@ -21,4 +25,9 @@
 
 .blog-post {
     line-height: 20px;
+}
+
+.django-ckeditor-widget {
+    width: 100%;
+    overflow: hidden;
 }

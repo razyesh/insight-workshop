@@ -1,5 +1,6 @@
 from django import forms
 from .models import Blog
+from tinymce.widgets import TinyMCE
 
 
 class BlogAddForm(forms.ModelForm):
@@ -14,3 +15,7 @@ class BlogAddForm(forms.ModelForm):
             'category',
             'tags'
         ]
+
+        widget = {
+            'description': TinyMCE(attrs={'cols': 80, 'rows': 30}),
+        }

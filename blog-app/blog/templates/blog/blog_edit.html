@@ -15,6 +15,7 @@
 
     <form action="" method="POST">
         {% csrf_token %}
+        {{ form.media }}
         {{ form|crispy }}
         <button class="btn btn-danger" style="margin:0;">Save</button>
         </div>

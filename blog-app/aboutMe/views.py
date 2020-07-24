@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'aboutMe/home.html')
+    page_title = 'About Me'
+    return render(request, 'aboutMe/home.html', {'page_title':page_title})

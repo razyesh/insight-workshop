@@ -10,9 +10,11 @@
 
     <form action="" method="POST">
         {% csrf_token %}
+        {{ form.media }}
         {{ form|crispy }}
         <button class="btn btn-danger" style="margin:0;">Submit</button>
         </div>
     </form>
     </div>
+
 {% endblock %}

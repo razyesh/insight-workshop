@@ -45,7 +45,7 @@ def login_user(request):
     else:
         login_form = LoginUser()
 
-    return render(request, 'authentication/login.html', {'form': login_form})
+    return render(request, 'authentication/login.html', {'form': login_form, 'page_title':'Login Form'})
 
 
 def logout_user(request):
@@ -86,6 +86,11 @@ class UserRegisterView(CreateView):
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form=form))
+
+    def get_context_data(self, **kwargs):
+        context = super(UserRegisterView, self).get_context_data()
+        context['page_title'] = 'Register Form'
+        return context
 
 
 def activate(request, uidb64, token):

@@ -23,5 +23,6 @@ urlpatterns = [
                   path('blog/', include('blog.urls', namespace='blog')),
                   path('', include('aboutMe.urls', namespace='about-me')),
                   path('', include('authentication.urls', namespace='authentication')),
-                  path('', include('user.urls', namespace='user'))
+                  path('', include('user.urls', namespace='user')),
+                  path('tinymce', include('tinymce.urls'))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

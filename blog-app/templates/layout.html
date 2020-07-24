@@ -1,4 +1,5 @@
 {% load static %}
+{% load cache %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,8 +32,9 @@
 <div class="container">
 
     {% include 'header.html' %}
+        {% if not page_title %}
         <a href="{% url 'blog:blog-list' %}"><button class="btn btn-success view-all-blog-btn">View All Blog</button></a>
-
+        {% endif %}
         <div class="row">
           <!-- Blog Entries Column -->
           <div class="col-md-8">

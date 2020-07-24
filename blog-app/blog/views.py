@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView
 from django.contrib import messages
+from django.views.decorators.cache import cache_page
 
 from .models import Blog, Category
 from .forms import BlogAddForm

@@ -46,7 +46,9 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'crispy_forms'
+    'crispy_forms',
+    'tinymce',
+    'ckeditor'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -130,6 +132,20 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache'
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'Blog_Cache'
     }
 }
+
+
+
+
+TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True

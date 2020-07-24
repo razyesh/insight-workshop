@@ -14,7 +14,7 @@
                 <img src="{{ blog.image_url }}" alt="Featured Image" class="card-img-top">
 
             {% endif %}
-            <p class="card-text">{{ blog.description }}</p>
+            <p class="card-text">{{ blog.description | safe }}</p>
         </div>
     </div>
 {% endblock %}

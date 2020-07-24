@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 
+from ckeditor.fields import RichTextField
+
 User = get_user_model()
 
 
@@ -20,7 +22,7 @@ class Blog(models.Model):
     author = models.ForeignKey(User, related_name='user_blog', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True)
-    description = models.TextField()
+    description = RichTextField()
     meta_description = models.CharField(max_length=255)
     featured_image = models.ImageField(upload_to=handle_featured_image, blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
