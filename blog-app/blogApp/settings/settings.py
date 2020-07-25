@@ -24,6 +24,10 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
+if DEBUG:
+    from .local_settings import *
+else:
+    from .prod_settings import *
 
 ALLOWED_HOSTS = []
 
